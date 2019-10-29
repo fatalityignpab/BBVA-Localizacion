@@ -1,0 +1,22 @@
+
+spring:
+  application:
+    name: service-registro
+  data:
+    mongodb:
+      uri: mongodb+srv://bbva:HackGirls@cluster0-al7vf.mongodb.net/test?retryWrites=true&w=majority
+      database: bbva
+  mail:
+    host: smtp.gmail.com
+    port: 465
+    username: torneoesport2@gmail.com
+    password: Planta123
+    properties:
+      mail:
+        smtp:
+          auth: true
+          ssl:
+            enable: true
+
+server:
+  port: 8082

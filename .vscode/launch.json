@@ -1,0 +1,17 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - DemoApplication",
+            "request": "launch",
+            "mainClass": "com.bbva.localizacion.DemoApplication"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - DemoApplication",
+            "request": "launch",
+            "mainClass": "com.bbva.reclu.reclutamiento.DemoApplication",
+            "projectName": "reclutamiento"
+        }
+    ]
+}
