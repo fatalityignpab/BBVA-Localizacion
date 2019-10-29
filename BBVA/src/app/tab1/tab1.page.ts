@@ -9,4 +9,11 @@ export class Tab1Page {
 
   constructor() {}
 
+  //peticion de cajeros
+  getCajeros(postalCode){
+    
+  }
+
+  //
+
 }
