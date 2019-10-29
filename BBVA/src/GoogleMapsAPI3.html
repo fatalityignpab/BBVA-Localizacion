@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>BBVA Branch and ATM Location</title>
+  <style>
+    #map{
+      height:400px;
+      width:100%;
+    }
+  </style>
+</head>
+<body>
+  <h1>BBVA Branch and ATM Location: Mexico </h1>
+  <div id="map"></div>
+  <script>
+    function initMap(){
+      // Map options
+      var options = {
+        zoom:8,
+        center:{lat:19.426257,lng:-99.170994}
+      }
+
+      // New map
+      var map = new google.maps.Map(document.getElementById('map'), options);
+
+      // Listen for click on map
+      google.maps.event.addListener(map, 'click', function(event){
+        // Add marker
+        addMarker({coords:event.latLng});
+      });
+
+      /*
+      // Add marker
+      var marker = new google.maps.Marker({
+        position:{lat:42.4668,lng:-70.9495},
+        map:map,
+        icon:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
+      });
+
+      var infoWindow = new google.maps.InfoWindow({
+        content:'<h1>Lynn MA</h1>'
+      });
+
+      marker.addListener('click', function(){
+        infoWindow.open(map, marker);
+      });
+      */
+
+      // Array of markers
+      var markers = [
+        {
+          coords:{lat:19.4311,lng:-99.133699999},
+          //iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+          content:'<h2>BRAND Name: BBVA Bancomer,ATM: 8465,StreetName: AV 20 DE NOVIEMBRE,Country: MX,Post Code: 03420,TownName: "CUAUHTÉMOC",Building Site: 3,Name: P.H,Branch: /h2>'
+
+        },
+        {
+          coords:{lat:19.3634,lng:-99.1431},
+          content:'<h2>BRAND Name: BBVA Bancomer,ATM: 1203,StreetName: MARIA AZUELA,Country: MX,Post Code: 06400,TownName: "MEXICO",Building Site: 12,Name: OPERADORA ALRO, Branch: 6062</h2>'
+        },
+        {
+          coords:{lat:18.902531,lng:-96.986643},
+          content:'<h2>BRAND Name: BBVA Bancomer,ATM: 3543,StreetName: BLVD. CÓRDOBA FORTÍN,Country: MX,Post Code: 94470,TownName: "FORTÍN",Building Site: 4021C,Name: PLAZA SHANGRI_LA, Branch: 4692</h2>'
+        },
+        {
+          coords:{lat:18.9025,lng:-96.9866},
+          content:'<h2>BRAND Name: BBVA Bancomer,ATM: 3542,StreetName: BLVD. CÓRDOBA FORTÍN",Country: MX,Post Code: 06400,TownName: "MEXICO",Building Site: 12,Name: OPERADORA ALRO, Branch: 4692</h2>'
+        }
+      ];
+
+      // Loop through markers
+      for(var i = 0;i < markers.length;i++){
+        // Add marker
+        addMarker(markers[i]);
+      }
+
+      // Add Marker Function
+      function addMarker(props){
+        var marker = new google.maps.Marker({
+          position:props.coords,
+          map:map,
+          //icon:props.iconImage
+        });
+
+        // Check for customicon
+        if(props.iconImage){
+          // Set icon image
+          marker.setIcon(props.iconImage);
+        }
+
+        // Check content
+        if(props.content){
+          var infoWindow = new google.maps.InfoWindow({
+            content:props.content
+          });
+
+          marker.addListener('click', function(){
+            infoWindow.open(map, marker);
+          });
+        }
+      }
+    }
+  </script>
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBeRkTA-_VB8ik-LWwqze78cAWXghoBTzY&callback=initMap">
+    </script>
+</body>
+</html>
